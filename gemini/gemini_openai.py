@@ -1,12 +1,18 @@
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
+
+api_key = os.getenv("OPENAI_API_KEY")  # Use the correct variable name
 
 client = OpenAI(
-    api_key="AIzaSyA1MTB2L09d-Yf6JnF09ddSpniMhLaUIp4",
+    api_key=api_key,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
 response = client.chat.completions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-2.5-flash",
     messages=[
         {
             "role": "user",
