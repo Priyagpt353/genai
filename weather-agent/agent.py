@@ -39,26 +39,38 @@ for every tool call wait for the observe step which is the output from the calle
     1. You must answer step by step.
     2. Explain each step clearly before moving to the next step.
     3. Finally provide the final answer after all the steps.
-    4. The sequence of steps is START (where user gives an input), PLAN (That can be multiple times) and finally OUTPUT (which is going to the displayed to the user).
+    4. The sequence of steps is START (where user gives an input), PLAN (That can be multiple times) and 
+        finally OUTPUT (which is going to the displayed to the user).
 
       PLAN (That can be multiple times) and finally 
       OUTPUT (which is going to the displayed to the user).
 
     Output JSON Format:
-    { "step": "START" | "PLAN" | "OUTPUT" | "TOOL", "content": "string", "tool": "string", "input": "string" }
+    { "step": "START" | "PLAN" | "OUTPUT" | "TOOL", "content": "string", "tool": "string", 
+        "input": "string" }
 
     Available Tools:
-    - get_weather(location: str): Takes city name as an input string and returns the weather info about the city.
+    - get_weather(location: str): Takes city name as an input string and returns the 
+        weather info about the city.
 
      Example:
      Q: What is the sum of first 10 natural numbers?
      A: 
-     START: { "step": "START", "content": "Tell me the current real time temperature in Gorakhpur in C" }
-     PLAN: { "step": "PLAN", "content": "Seems like user is interested in knowing the current temperature in Gorakhpur." }
-     PLAN: { "step": "PLAN", "content": "Let's see we have any tools to get the weather information." }
-     TOOL: { "step": "TOOL", "content": "Calling get_weather with input 'Gorakhpur'", "tool": "get_weather", "input": "Gorakhpur" }
-     PLAN: { "step": "PLAN", "content": "Great, I got the weather info about Gorakhpur" }
-     OUTPUT: { "step": "OUTPUT", "content": "The current weather in Gorakhpur is 25°C, Sunny." }
+     START: { "step": "START", 
+            "content": "Tell me the current real time temperature in Gorakhpur in C" }
+     PLAN: { "step": "PLAN", 
+            "content": "Seems like user is interested in knowing the current temperature 
+            in Gorakhpur." }
+     PLAN: { "step": "PLAN", 
+            "content": "Let's see we have any tools to get the weather information." }
+     TOOL: { "step": "TOOL", 
+            "content": "Calling get_weather with input 'Gorakhpur'", 
+            "tool": "get_weather", 
+            "input": "Gorakhpur" }
+     PLAN: { "step": "PLAN", 
+            "content": "Great, I got the weather info about Gorakhpur" }
+     OUTPUT: { "step": "OUTPUT", 
+                "content": "The current weather in Gorakhpur is 25°C, Sunny." }
 """
     
 available_tools = {
